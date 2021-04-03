@@ -1,0 +1,98 @@
+<%- include('partes/header') %>
+
+    <div>
+        <center>
+            <h1> PRACTICA 2 REDES 1</h2>
+        </center>
+    </div>
+
+
+
+    <div class="container col-6 col-xl-6 m-lg-4 m-md-4">
+        <h2>DEPARTAMENTO: VENTAS</h2>
+        <br>
+        <h2>GRUPO 22</h2>
+        <li>201602625 OSCAR ALFREDO LLAMAS LEMUS </li>
+        <li>201800464 PABLO ANDRES ARGUETA HERNANDEZ </li>
+        <li>201801370 JAVIER ANTONIO CHIN FLORES </li>
+        <li>201800634 ANTHONY FERNANDO SON MUX </li>
+    </div>
+
+
+
+    <br>
+
+    <br>
+    <br>
+    <br>
+    <div class="row">
+
+
+        <div class="container">
+            <div class="row p-4">
+                <div class="col-md-5"  style="height: 318px;">
+                    <div class="card">
+                        <form action="/add" method="POST" style="height: 318px;" class="p-5">
+                            <CENTER>
+                                <h3 style="color: black;">Creacion de Libro</h3>
+                            </CENTER>
+                            <div class="form-group">
+                                <input type="text" name="titulo" placeholder="INGRESA UN TITULO PARA EL LIBRO"
+                                    class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" name="autor" placeholder="INGRESE EL NOMBRE DEL AUTOR"
+                                    class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" name="editorial" placeholder="INGRESA LA EDITORIAL"
+                                    class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">CREAR</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md-7 " style="height: auto; max-height:318px ; overflow: scroll  !important;">
+                    <table class="table table-bordered table-hover " style="background-color: white;">
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th>Titulo</th>
+                                <th>Autor</th>
+                                <th>Editorial</th>
+                                <th>Operaciones</th>
+                            </tr>
+                        </thead>
+                        <tbody style="justify-content: center; text-align: center;">
+                            <% for (var i=0; i < libros.length;i++){ %>
+                                <tr>
+                                    <td>
+                                        <%= i+1 %>
+                                    </td>
+                                    <td>
+                                        <%=libros[i].titulo%>
+                                    </td>
+                                    <td>
+                                        <%=libros[i].autor%>
+                                    </td>
+                                    <td>
+                                        <%=libros[i].editorial%>
+                                    </td>
+                                    <td>
+                                        <a href="/delete/<%=libros[i]._id%>" class="btn btn-danger"> eliminar </a>
+                                        <br>
+                                    </td>
+                                </tr>
+                                <% }%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <%- include('partes/footer') %>
