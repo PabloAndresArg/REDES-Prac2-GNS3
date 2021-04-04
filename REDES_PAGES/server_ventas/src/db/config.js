@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const dbConnection = async () => {
     try {
-        await mongoose.connect('mongodb://localhost/redes1-grupo22',
+        await mongoose.connect('mongodb://192.168.122.130/redes1-grupo22',
             {
                 useCreateIndex: true,
                 useNewUrlParser: true,
